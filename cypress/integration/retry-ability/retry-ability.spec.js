@@ -6,7 +6,7 @@
 describe('Retry-Ability Session', function(){
 
     beforeEach(function(){
-        cy.visit('http://192.168.0.13:8888/#/'); // Command
+        cy.visit('http://192.168.0.15:8888'); // Command
 
         //Get -> Get one or more DOM elements by selector or alias.
         cy.get('.new-todo')                 // command - Get one or more DOM elements by selector or alias.
@@ -21,7 +21,7 @@ describe('Retry-Ability Session', function(){
 
     //In the example, Within a few milliseconds after the DOM updates, cy.get() finds two elements and the should('have.length', 2) assertion passes.
 
-    it('should create two items', () => {
+    it.only('should create two items', () => {
         cy.get('.todo-list li')             // command
           .should('have.length', 2)         // assertion
     });
