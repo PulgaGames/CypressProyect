@@ -9,8 +9,6 @@
     "cypress:runDefault": "cypress run --spec cypress/integration/retry-ability/retry-ability.spec.js",
     "cypress:runChrome": "cypress run --browser chrome --spec cypress/integration/retry-ability/retry-ability.spec.js",
     "cypress:runChromeHeadless": "cypress run --headless --browser chrome --spec cypress/integration/retry-ability/retry-ability.spec.js"
-
-  
   },
   "keywords": [
     "e2e",
