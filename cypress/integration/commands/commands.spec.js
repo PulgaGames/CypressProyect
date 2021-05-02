@@ -21,7 +21,4 @@ describe('Command Example', function(){
         cy.typeLogin('standard_user', 'dummyPassword');
         cy.get('[data-test="error"]').should('contain.text', "Epic sadface: Username and password do not match any user in this service");
     });
-
-    
-
 });
