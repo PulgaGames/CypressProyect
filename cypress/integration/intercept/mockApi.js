@@ -4,6 +4,14 @@
 
 describe('Intercept Demo', function(){
 
+    it('Initial Validation', function(){
+        cy.visit('http://localhost:3000/');
+        cy.get('#todo-list li')
+        .should('have.length', 2)
+        .and('contain', 'test')
+        .and('contain', 'wash dishes')
+    });
+
     it('Mocked API Response validation',function(){
 
         cy.intercept('GET' , '/todos', {fixture: 'intercept/interceptFixture.json'}).as('getTodos-fixture');
@@ -29,10 +37,6 @@ describe('Intercept Demo', function(){
         cy.intercept('GET' , '/todos', {body: stubSample}).as('getTodos-body');
 
         cy.visit('http://localhost:3000/');
-
-        cy.intercept('PATCH', '/todos/1', {
-            body: stubSample
-        }).as('patchTodo')
 
         cy.get('div label').should('have.css', 'text-decoration', 'line-through solid rgb(217, 217, 217)')
 
