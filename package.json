@@ -19,6 +19,6 @@
   "author": "joanmedia",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^5.3.0"
+    "cypress": "7.0.0"
   }
 }

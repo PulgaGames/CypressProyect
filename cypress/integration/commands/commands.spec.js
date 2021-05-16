@@ -6,19 +6,25 @@
     //Why there? since it is loaded before any test files are evaluated via
     //an import statement in your supportFile (cypress/support/index.js by default).
 
-describe('Command Example', function(){
 
-    beforeEach(function(){
-        cy.visit('https://www.saucedemo.com/');
-    });
+    describe('Commands Example', function(){
 
-    it('Sucess Login Test', function(){
-        cy.typeLogin('standard_user', 'secret_sauce');
-        cy.get('.title').should('contain.text', 'Products');
-    });
+        beforeEach(function(){
+            cy.visit('https://www.saucedemo.com/')
+ 
+        })
 
-    it('Not Sucess Login Test', function(){
-        cy.typeLogin('standard_user', 'dummyPassword');
-        cy.get('[data-test="error"]').should('contain.text', "Epic sadface: Username and password do not match any user in this service");
-    });
-});
+        it('Success Login Test', function(){
+            cy.typeLogin('standard_user','secret_sauce')
+            cy.get('.title').should('contain.text', 'Products')
+            cy.logout();
+            cy.url().should('eq', 'https://www.saucedemo.com/')
+        })
+
+        it('Failed Login Test', function(){
+            cy.typeLogin('standard_user', 'DummyPassword');
+            cy.get('.error').should('contain.text','Epic sadface: Username and password do not match any user in this service');
+        })
+
+
+    })
