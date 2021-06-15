@@ -16,7 +16,7 @@ describe('Scheduled Searches - Endpoint API Test - DEMO', function () {
 
     it('Create a scheduled Search', function () {
 
-        cy.request('POST','https://n15-214-137-h69.arcsight.com/rec/api/searchscheduler', ss)
+        cy.request('POST','test', ss)
         .should(response => { 
            expect(response.status).to.equal(200)
            expect(response.statusText).to.equal('OK')
@@ -43,7 +43,7 @@ describe('Scheduled Searches - Endpoint API Test - DEMO', function () {
 
         cy.fixture('api-demo/schedule-data').then(data=>{
 
-            cy.request('PUT',`https://n15-214-137-h69.arcsight.com/rec/api/searchscheduler/${data.id}`, ssUpdated)
+            cy.request('PUT',`https://test/${data.id}`, ssUpdated)
             .should(response => { 
                 expect(response.status).to.equal(200)
                 expect(response.statusText).to.equal('OK')
@@ -59,7 +59,7 @@ describe('Scheduled Searches - Endpoint API Test - DEMO', function () {
     it('Delete a schheduled search', function(){
         cy.fixture('api-demo/schedule-data').then(data=>{
 
-            cy.request('DELETE',`https://n15-214-137-h69.arcsight.com/rec/api/searchscheduler/${data.id}`)
+            cy.request('DELETE',`test/${data.id}`)
             .should(response => { 
                 expect(response.status).to.equal(200)
                 expect(response.statusText).to.equal('OK')
