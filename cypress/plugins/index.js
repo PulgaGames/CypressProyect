@@ -20,11 +20,9 @@ module.exports = (on, config) => {
   // `config` is the resolved Cypress config
 }
 
+// cypress/plugins/index.js
 module.exports = (on, config) => {
-  require('cypress-mochawesome-reporter/plugin')(on);
-};
-
-const selectTestsWithGrep = require('cypress-select-tests/grep')
-    module.exports = (on, config) => {
-    on('file:preprocessor', selectTestsWithGrep(config))
+  // optional: register cypress-grep plugin code
+  // https://github.com/bahmutov/cypress-grep
+  require('cypress-grep/src/plugin')(config)
 }

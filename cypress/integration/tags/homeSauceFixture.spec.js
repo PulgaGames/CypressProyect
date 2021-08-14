@@ -4,7 +4,7 @@ import inventoryPage from '../../pages/saucedemo/inventoryPage'
 const tests = require('../../fixtures/data-driven/sauceUsers.json');
 
 
-describe('Home Sauce Demo (regression,sanity)', () => {
+describe('Home Sauce Demo (regression,sanity)', { tags: ['@regressionTag', '@sanityTag'] }, () => {
 
     beforeEach(function () {
         cy.visit('https://www.saucedemo.com/');

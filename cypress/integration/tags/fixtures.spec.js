@@ -1,5 +1,5 @@
 
-describe('Fixtures Demo (sanity)', function () {
+describe('Fixtures Demo (sanity)', { tags: '@sanityTag' }, function () {
     beforeEach(function () {
         cy.visit('https://www.saucedemo.com/');
 

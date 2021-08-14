@@ -1,5 +1,5 @@
 
-describe('Button Actions (regression)', () => {
+describe('Button Actions (regression)', { tags: '@regressionTag' },() => {
 
     beforeEach(() => {
         cy.visit('https://demoqa.com/buttons')
