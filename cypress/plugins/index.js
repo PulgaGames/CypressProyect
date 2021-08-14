@@ -23,3 +23,8 @@ module.exports = (on, config) => {
 module.exports = (on, config) => {
   require('cypress-mochawesome-reporter/plugin')(on);
 };
+
+const selectTestsWithGrep = require('cypress-select-tests/grep')
+    module.exports = (on, config) => {
+    on('file:preprocessor', selectTestsWithGrep(config))
+}

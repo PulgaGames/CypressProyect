@@ -1,0 +1,10 @@
+1- Install npm install --save-dev cypress-select-tests
+2- Under cypress/plugins/index.js write:
+    const selectTestsWithGrep = require('cypress-select-tests/grep')
+    module.exports = (on, config) => {
+    on('file:preprocessor', selectTestsWithGrep(config))
+    }
+
+Now we can filter using --env grep='smoke/e2e'
+Or the invert way --env grep='smoke', invert=true    
+
