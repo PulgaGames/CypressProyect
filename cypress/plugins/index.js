@@ -26,3 +26,9 @@ module.exports = (on, config) => {
   // https://github.com/bahmutov/cypress-grep
   require('cypress-grep/src/plugin')(config)
 }
+
+module.exports = (on, config) => {
+  // optional: register cypress-grep plugin code
+  // https://github.com/bahmutov/cypress-grep
+  require('cypress-mochawesome-reporter/plugin')(on)
+}
