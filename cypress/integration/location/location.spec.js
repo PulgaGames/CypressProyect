@@ -1,9 +1,10 @@
 describe('Location Demo', function(){
-
+/*  Aca tenemos el comando que nos permite visitar el enlace al que queremos realizar la prueba 
+*/
     beforeEach(function(){
         cy.visit('https://gas-uat.apps.cloud.sigmaingenieria.net/content-layout/login');
     });
-
+/* realizamoss un it donde nos verifica que el titulo html se igual A el de GeoAseo */
     it('should have title tag with value GeoAseo', function(){
         cy.title().should('eq','GeoAseo');
     });
