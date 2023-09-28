@@ -8,7 +8,7 @@ describe("Modulo de pruerbas ",function(){
 
     it("Verificar que estoy en google ",function(){
 
-        cy.title.should("eq","Google")
+        cy.title().should("eq","Google")
     })
 
 
