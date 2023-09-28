@@ -1,31 +1,30 @@
 describe('Location Demo', function(){
 
     beforeEach(function(){
-        cy.visit('https://www.saucedemo.com/');
+        cy.visit('https://gas-uat.apps.cloud.sigmaingenieria.net/content-layout/login');
     });
 
-    it('should have title tag with value Swag Labs', function(){
-        cy.title().should('eq','Swag Labs');
+    it('should have title tag with value GeoAseo', function(){
+        cy.title().should('eq','GeoAseo');
     });
 
-    it('URL should be https://www.saucedemo.com/', function(){
-        cy.url().should('eq', 'https://www.saucedemo.com/');
+    it('URL should be https://gas-uat.apps.cloud.sigmaingenieria.net/content-layout/login/', function(){
+        cy.url().should('eq', 'https://gas-uat.apps.cloud.sigmaingenieria.net/content-layout/login');
     })
 
     it('should be HTTPS',function(){
         cy.location('protocol').should('contains', 'https');
     });
 
-    it('the hostname should be www.saucedemo.com', function(){
-        cy.location('hostname').should('eq', 'www.saucedemo.com');
-    });
+    it('should login Geoaseo ', function(){
+        cy.get('select#sistema').select("GeoAseo Pruebas")
 
-    it('should redirect /inventory.html', function(){
-        cy.get('[data-test="username"]').type('standard_user');
-        cy.get('[data-test="password"]').type('secret_sauce');
-        cy.get('[data-test="login-button"]').click();
-
-        cy.location('pathname').should('eq', '/inventory.html')
+        cy.get("#inputUsuario").type('juli');
+        cy.get('#inputPass').type('juli');
+        cy.get('#login > div > div > div > div > div.card-body > div > form > div.form-group.botones-login > div > div > button').click();
+        cy.wait(5000);
+        cy.location('pathname').should('eq', '/administracion') 
+        
     })
 
 })
